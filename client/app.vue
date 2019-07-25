@@ -2,7 +2,6 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <!--<p>{{count}}</p>-->
     <p>{{fullName}} --- {{counter}}</p>
     <router-view/>
     <Footer></Footer>
@@ -14,15 +13,24 @@
   import Footer from './layout/footer.jsx'
   import Todo from './views/todo/todo.vue'
 
-  import {mapState, mapGetters} from 'vuex';
+  import {mapState, mapGetters,mapActions,mapMutations} from 'vuex';
 
   export default {
     mounted(){
       console.log(this.$store);
-      let i = 1;
-      // setInterval(()=> {
-      //   this.$store.commit('updateCount',i++)
-      // },1000)
+      //actions的语法糖
+      this.updateCountAsync({
+        num:66,
+        time:2000
+      });
+      // this.$store.dispatch('updateCountAsync',{
+      //   num:11,
+      //   time:2000
+      // })
+    },
+    methods:{
+      ...mapActions(['updateCountAsync']),
+      ...mapMutations(['updateCount']),
     },
     computed:{
       ...mapState({
