@@ -2,6 +2,8 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
+    <!--<p>{{count}}</p>-->
+    <p>{{fullName}} --- {{counter}}</p>
     <router-view/>
     <Footer></Footer>
   </div>
@@ -12,7 +14,29 @@
   import Footer from './layout/footer.jsx'
   import Todo from './views/todo/todo.vue'
 
+  import {mapState, mapGetters} from 'vuex';
+
   export default {
+    mounted(){
+      console.log(this.$store);
+      let i = 1;
+      // setInterval(()=> {
+      //   this.$store.commit('updateCount',i++)
+      // },1000)
+    },
+    computed:{
+      ...mapState({
+        counter:(state) => state.count
+      }),
+      //mapState是语法糖
+      // count(){
+      //   return this.$store.state.count
+      // },
+      ...mapGetters(['fullName'])
+      // fullName(){
+      //   return this.$store.getters.fullName
+      // }
+    },
     components: {
       Header,
       Footer,
