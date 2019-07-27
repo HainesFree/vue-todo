@@ -5,18 +5,10 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
 const VueServerPlugin = require('vue-server-renderer/server-plugin')
 
-const defaultPluins = [
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: '"development"'
-    }
-  })
-]
-
 let config
 
 config = merge(baseConfig, {
-  target: "node",
+  target: "node",//打包后js的执行环境是node
   entry: path.join(__dirname, '../client/server-entry.js'),
   devtool: 'source-map',
   output: {

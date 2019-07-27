@@ -4,6 +4,7 @@ const webpack = require("webpack")                      //引入webpack
 const ExtractPlugin = require("extract-text-webpack-plugin")
 const merge = require('webpack-merge')
 const baseConfig = require("./webpack.config.base");
+const VueClientPlugin = require('vue-server-render/client-plugin');
 
 const isDev = process.env.NODE_ENV === "development";    //判断是否为测试环境,在启动脚本时设置的环境变量都是存在于process.env这个对象里面的
 
@@ -27,7 +28,8 @@ const defaultPlugins = [
   }),
   new HTMLPlugin({
     template:path.join(__dirname,'template.html')
-  })
+  }),
+  new VueClientPlugin()// 会生成vue-ssr-client-manifest.json文件
 ]
 
 var config;
