@@ -4,7 +4,7 @@ const webpack = require("webpack")                      //引入webpack
 const ExtractPlugin = require("extract-text-webpack-plugin")
 const merge = require('webpack-merge')
 const baseConfig = require("./webpack.config.base");
-const VueClientPlugin = require('vue-server-render/client-plugin');
+const VueClientPlugin = require('vue-server-renderer/client-plugin');
 
 const isDev = process.env.NODE_ENV === "development";    //判断是否为测试环境,在启动脚本时设置的环境变量都是存在于process.env这个对象里面的
 
@@ -14,8 +14,8 @@ const devServer = {
   overlay: {
     errors: true,                               //编译中遇到的错误都会显示到网页中去
   },
-  historyApiFallback:{
-    index:'/index.html'
+  historyApiFallback: {
+    index: '/public/index.html'
   },
   open: true,
   hot: true
