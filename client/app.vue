@@ -16,6 +16,9 @@
   import {mapState, mapGetters,mapActions,mapMutations} from 'vuex';
 
   export default {
+    metaInfo:{
+      title:'Haines todo app'
+    },
     mounted(){
       console.log(this.$store);
       //actions的语法糖

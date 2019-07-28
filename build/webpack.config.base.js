@@ -7,7 +7,7 @@ const createVueLoader = require("./vue-loader.config");
 
 const config = {
   target: "web",                                      //设置webpack的编译目标是web平台
-  entry: path.join(__dirname, '../client/index.js'),         //声明js文件入口,__dirname就是我们文件的根目录,用join拼接
+  entry: path.join(__dirname, '../client/client-entry.js'),         //声明js文件入口,__dirname就是我们文件的根目录,用join拼接
   output: {
     filename: 'bundle.[hash:8].js',
     path: path.join(__dirname, '../public'),
