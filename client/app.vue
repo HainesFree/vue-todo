@@ -2,7 +2,8 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} --- {{counter}}</p>
+    <Notification content="i am test"/>
+    <!--<p>{{fullName}} -&#45;&#45; {{counter}}</p>-->
     <router-view/>
     <Footer></Footer>
   </div>
